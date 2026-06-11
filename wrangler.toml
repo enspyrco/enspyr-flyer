@@ -1,0 +1,19 @@
+name = "enspyr-flyer-forge"
+main = "worker-entry.mjs"
+compatibility_date = "2025-01-01"
+account_id = "fc0bb404a04968a041ca7d8475e2ffad"
+workers_dev = true
+
+assets = { directory = "./public" }
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "enspyr-flyer-artifacts"
+
+[[routes]]
+pattern = "forge.imagineering.cc"
+custom_domain = true
+
+# Secrets (set via `wrangler secret put`):
+#   CLAUDE_CODE_OAUTH_TOKEN   (long-lived, from `claude setup-token` — Max subscription)
+#   FORGE_PASSPHRASE          (access gate Delia enters)

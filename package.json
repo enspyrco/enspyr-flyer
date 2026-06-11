@@ -1,0 +1,9 @@
+{
+  "name": "enspyr-flyer-forge",
+  "private": true,
+  "type": "module",
+  "description": "Deployed forge instance for Delia's Enspyr A4 flyer. Depends on the pinned engine forge-web-app@v0.3.0 — NOT a snapshot copy. The worker bundles forge-web-app/worker from node_modules; the browser UI loads it from jsDelivr at the same tag (see public/index.html import map).",
+  "dependencies": {
+    "forge-web-app": "github:nickmeinhold/forge-web-app#v0.3.0"
+  }
+}
