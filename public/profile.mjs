@@ -7,7 +7,7 @@
  */
 // Bare specifier — resolves in BOTH contexts: the worker bundles it from node_modules (the
 // github-pinned dep), the browser resolves it via the <script type="importmap"> in index.html.
-// This is what kills the snapshot copy: one source of truth (forge-web-app@v0.4.0), no local src/.
+// This is what kills the snapshot copy: one source of truth (forge-web-app@v0.5.0), no local src/.
 import { defineProfile } from "forge-web-app";
 
 export const profile = defineProfile({
@@ -45,6 +45,11 @@ export const profile = defineProfile({
   // id from the Enspyr Google Auth Platform app (project enspyrco); locked to this origin.
   googleClientId: "588100172166-974g7okhs0ein5de5011g48qk42vthfm.apps.googleusercontent.com",
   driveFolderName: "Enspyr Flyers",
+
+  // ACCESS GATE: cast access is gated by Google identity instead of the shared passphrase. Only
+  // these verified Google accounts may cast — the worker checks the signed-in ID token's email
+  // against this list. Replaces FORGE_PASSPHRASE for this instance (the phrase is no longer taken).
+  allowedEmails: ["dhizkch@gmail.com", "nick.meinhold@gmail.com"],
 
   // Flyers are larger than landing pages — give the builder headroom and a roomier default budget.
   maxBuilderTokens: 8192,
