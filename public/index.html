@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Enspyr flyer forge</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.3.0/src/ui/forge.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.4.0/src/ui/forge.css">
   <!-- Import map: resolves the bare "forge-web-app" specifier (used by profile.mjs) in the browser,
        pinned to the SAME tag the worker bundles. Without it, profile.mjs's bare import throws
        "Failed to resolve module specifier" in-browser. This + the jsDelivr UI imports below are
        what let us delete the public/src snapshot entirely. -->
   <script type="importmap">
-  { "imports": { "forge-web-app": "https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.3.0/src/profile.mjs" } }
+  { "imports": { "forge-web-app": "https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.4.0/src/profile.mjs" } }
   </script>
   <style>
     body { margin: 0; padding: 24px; background: #f7f7f8; font-family: system-ui, sans-serif; color: #1a1a1a; }
@@ -27,7 +27,7 @@
   </header>
   <div id="forge"></div>
   <script type="module">
-    import { mountForge } from "https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.3.0/src/ui/forge.mjs";
+    import { mountForge } from "https://cdn.jsdelivr.net/gh/nickmeinhold/forge-web-app@v0.4.0/src/ui/forge.mjs";
     import { profile } from "/profile.mjs";
     // Same-origin: the worker on this domain serves /health, /cast and the saved /a/<id> pages.
     mountForge({ profile, root: document.getElementById("forge"), worker: "" });

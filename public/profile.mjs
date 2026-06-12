@@ -7,7 +7,7 @@
  */
 // Bare specifier — resolves in BOTH contexts: the worker bundles it from node_modules (the
 // github-pinned dep), the browser resolves it via the <script type="importmap"> in index.html.
-// This is what kills the snapshot copy: one source of truth (forge-web-app@v0.3.0), no local src/.
+// This is what kills the snapshot copy: one source of truth (forge-web-app@v0.4.0), no local src/.
 import { defineProfile } from "forge-web-app";
 
 export const profile = defineProfile({
@@ -39,6 +39,12 @@ export const profile = defineProfile({
 
   // Protect the big inlined svg+xml graphic (URL-encoded data URI) from the loop.
   protectedPatterns: ["data:image/svg\\+xml[^\"')]+"],
+
+  // Per-user "save to Drive": each iteration card lets the signed-in user (Delia) save that flyer
+  // version straight to their OWN Google Drive (drive.file scope — no server creds). Public client
+  // id from the Enspyr Google Auth Platform app (project enspyrco); locked to this origin.
+  googleClientId: "588100172166-974g7okhs0ein5de5011g48qk42vthfm.apps.googleusercontent.com",
+  driveFolderName: "Enspyr Flyers",
 
   // Flyers are larger than landing pages — give the builder headroom and a roomier default budget.
   maxBuilderTokens: 8192,
